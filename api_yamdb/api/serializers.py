@@ -1,8 +1,8 @@
 from django.core.validators import MaxValueValidator, MinValueValidator
 import datetime
 from rest_framework import serializers
-from reviews.models import Category, Genre, Title, User
-from reviews.models import User, Comment, Review, username_validator
+from reviews.models import Category, Genre, Title, User, Comment, Review
+from reviews.models import username_validator
 
 USERNAME_ME_ERROR = 'Username указан неверно! Нельзя указать username "me"'
 INVALID_CHARACTER_ERR = ('Username указан неверно!'
