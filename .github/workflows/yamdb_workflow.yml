@@ -1,8 +1,6 @@
 name: Django-app worflow
 
-on: 
-  push:
-    branches: [ master ]
+on: [ push ]
 
 jobs:
   tests:
