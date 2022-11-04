@@ -47,7 +47,7 @@ jobs:
           context: ./api_yamdb/
           tags: ${{ secrets.DOCKER_USERNAME }}/infra:latest
 
-    send_message:
+  send_message:
     runs-on: ubuntu-latest
     needs: deploy
     steps:
