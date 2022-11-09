@@ -1,26 +1,28 @@
 from random import randrange
-from rest_framework.response import Response
+
+from django.core.mail import send_mail
 from django.db import IntegrityError
 from django.db.models import Avg
-from django.core.mail import send_mail
 from django.shortcuts import get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import filters, status, viewsets, mixins
+from rest_framework import filters, mixins, status, viewsets
 from rest_framework.decorators import action, api_view, permission_classes
 from rest_framework.permissions import (AllowAny, IsAuthenticated,
                                         IsAuthenticatedOrReadOnly)
+from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
-from reviews.models import User, Category, Genre, Title, Comment, Review
+from reviews.models import Category, Comment, Genre, Review, Title, User
 
 from api_yamdb.settings import ADMIN_EMAIL
+
 from .filters import TitleFilter
-from .permissions import (IsAdmin,
-                          ReadOnly, IsAdminOrModeratorOrAuthorOrReadOnly)
-from .serializers import (AdminUserSerializer, SignupSerializer,
-                          GenreSerializer, TitleSeraializer,
-                          TokenSerializer, UserSerializer,
-                          CommentSerializer, ReviewSerializer,
-                          CategorySerializer, ReadOnlyTitleSerializer)
+from .permissions import (IsAdmin, IsAdminOrModeratorOrAuthorOrReadOnly,
+                          ReadOnly)
+from .serializers import (AdminUserSerializer, CategorySerializer,
+                          CommentSerializer, GenreSerializer,
+                          ReadOnlyTitleSerializer, ReviewSerializer,
+                          SignupSerializer, TitleSeraializer,
+                          TokenSerializer, UserSerializer)
 
 NOT_AUTHENTICATED = 'У вас нет прав'
 SERIALIZER_INVALID = 'Неверно заполнен имейл и юзернейм'
@@ -160,6 +162,7 @@ class CommentViewSet(viewsets.ModelViewSet):
         if self.get_review():
             return Comment.objects.filter(review_id=self.kwargs
                                           .get('review_id'))
+        return None
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user,

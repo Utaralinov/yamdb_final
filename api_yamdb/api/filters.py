@@ -1,7 +1,7 @@
-from django_filters import (ModelMultipleChoiceFilter, FilterSet,
-                            NumberFilter, CharFilter)
-
-from reviews.models import Title, Genre
+from django_filters import (CharFilter, FilterSet,
+                            ModelMultipleChoiceFilter,
+                            NumberFilter)
+from reviews.models import Genre, Title
 
 
 class TitleFilter(FilterSet):

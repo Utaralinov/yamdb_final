@@ -1,10 +1,10 @@
-
-from django.contrib.auth.models import AbstractUser
-from django.core.validators import MaxValueValidator, MinValueValidator
-from django.db import models
 import datetime
 import re
+
+from django.contrib.auth.models import AbstractUser
 from django.core.exceptions import ValidationError
+from django.core.validators import MaxValueValidator, MinValueValidator
+from django.db import models
 
 ADMIN = 'admin'
 MODERATOR = 'moderator'
