@@ -1,5 +1,1 @@
-<!-- # yamdb_final
-yamdb_final
-
-![Бейдж!](https://github.com/Utaralinov/yamdb_final/actions)
- -->
+![yamdb_workflow](https://github.com/Utaralinov/yamdb_final/actions/workflows/yamdb_workflow/badge.svg)
