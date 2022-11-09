@@ -8,7 +8,7 @@ services:
     env_file:
       - ./.env
   web:
-    build:  ${{ secrets.DOCKER_USERNAME }}/infra:latest
+    image: ${{ secrets.DOCKER_USERNAME }}/infra:latest
     restart: always
     volumes:
       - static_value:/app/static/
