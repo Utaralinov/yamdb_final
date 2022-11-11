@@ -21,8 +21,8 @@ from .permissions import (IsAdmin, IsAdminOrModeratorOrAuthorOrReadOnly,
 from .serializers import (AdminUserSerializer, CategorySerializer,
                           CommentSerializer, GenreSerializer,
                           ReadOnlyTitleSerializer, ReviewSerializer,
-                          SignupSerializer, TitleSeraializer,
-                          TokenSerializer, UserSerializer)
+                          SignupSerializer, TitleSeraializer, TokenSerializer,
+                          UserSerializer)
 
 NOT_AUTHENTICATED = 'У вас нет прав'
 SERIALIZER_INVALID = 'Неверно заполнен имейл и юзернейм'
