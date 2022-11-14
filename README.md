@@ -1,3 +1,5 @@
+![yamdb_workflow](https://github.com/Utaralinov/yamdb_final/actions/workflows/yamdb_workflow/badge.svg)
+
 # Проект YAMDB
 Проект YaMDb собирает отзывы пользователей на произведения. 
 Произведения делятся на категории. Список категорий (Category) может быть расширен администратором.
@@ -29,33 +31,25 @@
 
 Клонировать репозиторий и перейти в него в командной строке:
 
-<pre><code>git clone [https://github.com/Utaralinov/infra_sp2.git]</code>
+<pre><code>git clone [https://github.com/Utaralinov/yamdb_final.git]</code>
 
-<code>cd infra_sp2</code></pre>
+<code>cd yamdb_final</code></pre>
 
 
 ## Шаблоны наполнения env-файла:
-В директорий infra создайте файл .env с переменными окружения для базы данных
+В директорий yamdb_final создайте файл .env с переменными окружения для базы данных
 
 <code>
-DOCKER_PASSWORD
-DOCKER_USERNAME
-SERVER_HOST #публичный адрес сервера для доступа по SSH
-SERVER_SUDO_USER
-SSH_KEY #Скопируйте приватный ключ с компьютера, имеющего доступ к боевому серверу: cat ~/.ssh/id_rsa
-SSH_PASSWORD
-TELEGRAM_TOKEN #токен чат бота который будет отправлять сообщение
-TELEGRAM_CHAT_ID #кому отправлять сообщение
 DB_ENGINE=django.db.backends.postgresql #Указываем, что работаем с postgresql
 DB_NAME=postgres #Имя базы данных
-POSTGRES_USER=user #Логин для подключения к базе данных
-POSTGRES_PASSWORD=password #Пароль для подключения к БД (установите свой)
-DB_HOST=db #Название сервиса (контейнера)
-DB_PORT=5432 #Порт для подключения к БД
+POSTGRES_USER=postgres_user #Логин для подключения к базе данных
+POSTGRES_PASSWORD=postgres_password #Пароль для подключения к БД (установите свой)
+DB_HOST=db_host #Название сервиса (контейнера)
+DB_PORT=1234 #Порт для подключения к БД
 SECRET_KEY='Ваш секретный ключь'
 </code>
 
-Из папки infra/ разверните контейнеры при помощи docker-compose
+Из папки yamdb_final/ разверните контейнеры при помощи docker-compose
 <code>$ docker-compose up -d --build</code>
 
 Выполните миграции
@@ -73,6 +67,5 @@ SECRET_KEY='Ваш секретный ключь'
 Остановка проекта: 
 <code>$ docker-compose down</code>
 
-
-
-![yamdb_workflow](https://github.com/Utaralinov/yamdb_final/actions/workflows/yamdb_workflow/badge.svg)
+## Примеры запросов: 
+http://84.201.139.105/redoc/ 
