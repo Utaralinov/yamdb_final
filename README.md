@@ -68,4 +68,5 @@ SECRET_KEY='Ваш секретный ключь'
 <code>$ docker-compose down</code>
 
 ### Примеры запросов: 
-http://84.201.139.105/redoc/ 
+http://84.201.139.105/redoc/
+http://84.201.139.105/api/v1/
